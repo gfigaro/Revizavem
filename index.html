@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HESI Fundamentals Exam</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.json">
+
+</head>
+
+<body>
+    <!-- Start page -->
+    <div id="start-page">
+        <h1>Fundamentals</h1>
+        <p>Welcome to the exam <br>Click below to start. Be patient you got this.</p>
+        <button id="start1" class="start-btn">Start Exam 1</button>
+        <button id="start2" class="start-btn">Start Exam 2</button>
+        <button id="start3" class="start-btn">Start Exam 3</button>
+        <button id="start4" class="start-btn">Start Exam 4</button>
+        <button id="start5" class="start-btn">Start Exam 5</button>
+    </div>
+
+      <!-- Header 1 -->
+      <header id="header1" class="header" style="display: none;">
+        <div class="header-content">
+            <h2 id="exam-title">NCLEX-Prep</h2>
+            <p id="user-info"></p>
+            <h1 id="page-title">Revize Avèm</h1>
+            <p id="test-id"></p>
+            <div class="header-right">
+                <p id="question-number">Question 1 of 40</p> <br>
+                <span id="timer"> Time</span>
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Header 2 -->
+    <header id="header2" class="header" style="display: none;">
+        <button id="calculator-btn" class="utility-btn">Calculator</button>
+        <button id="notepad-btn" class="utility-btn">Notepad</button>
+        <button id="highlight-btn" class="utility-btn">Highlighter</button>
+        <button id="mark-btn" class="utility-btn">Mark for Review</button>
+    </header>
+
+    <!-- Calculator Modal -->
+    <div id="calculator-modal" class="modal" style="display: none;">
+        <div class="modal-content calculator">
+            <span class="close">&times;</span>
+            <div class="calculator-display">
+                <input type="text" id="calc-display" value="0" disabled>
+            </div>
+            <div class="calc-buttons">
+                <button class="calc-btn" value="+/-">+/-</button>
+                <button class="calc-btn" value="sqrt">√</button>
+                <button class="calc-btn" value="%">%</button>
+                <button class="calc-btn operator" value="/">÷</button>
+                <button class="calc-btn" value="MRC">MRC</button>
+                <button class="calc-btn" value="M-">M-</button>
+                <button class="calc-btn" value="M+">M+</button>
+                <button class="calc-btn operator" value="*">×</button>
+                <button class="calc-btn" value="7">7</button>
+                <button class="calc-btn" value="8">8</button>
+                <button class="calc-btn" value="9">9</button>
+                <button class="calc-btn operator" value="-">-</button>
+                <button class="calc-btn" value="4">4</button>
+                <button class="calc-btn" value="5">5</button>
+                <button class="calc-btn" value="6">6</button>
+                <button class="calc-btn operator" value="+">+</button>
+                <button class="calc-btn" value="1">1</button>
+                <button class="calc-btn" value="2">2</button>
+                <button class="calc-btn" value="3">3</button>
+                <button class="calc-btn equal" value="=">=</button>
+                <button class="calc-btn" value="ON/C">ON/C</button>
+                <button class="calc-btn" value="0">0</button>
+                <button class="calc-btn" value=".">.</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz container, initially hidden, will be shown after clicking start -->
+    <div id="quiz-container" style="display: none;">
+        <div id="quiz" class="question-container"></div>
+
+        <div class="button-container">
+            <div class="left-buttons">
+                <button id="end"><i class="fas fa-sign-out-alt"></i> End</button>
+                <button id="suspend"><i class="fas fa-pause-circle"></i> Suspend</button>
+            </div>
+            <div class="right-buttons">
+                <button id="prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                <button id="next"><i class="fas fa-arrow-right"></i> Next</button>
+                <button id="done" style="display: none;"><i class="fas fa-check-circle"></i> Done</button>
+                <button id="submitQuiz"><i class="fas fa-check-circle"></i> Submit Quiz</button>
+            </div>
+        </div>
+        
+
+        <div id="results"></div>
+    </div>
+
+    <div id="review-page" style="display: none;">
+        <h1>Review of Answers</h1>
+        <div id="all-questions"></div>
+        <button id="close-review" class="quiz-btn">Close Review</button>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js')
+            .then(() => console.log('Service Worker registered'))
+            .catch(error => console.log('Service Worker registration failed', error));
+        }
+      </script>
+      
+</body>
+</html>

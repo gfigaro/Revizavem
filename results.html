@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .results-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 60%;
+        }
+        .results-container h1 {
+            margin-bottom: 20px;
+        }
+        .results-container p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <h1>Quiz Results</h1>
+        <p id="timeSpent"></p>
+        <p id="grade"></p>
+        <p id="preparednessLevel"></p>
+        <button onclick="returnToHome()">Return to Home</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve results from localStorage
+            const timeSpent = localStorage.getItem('timeSpent');
+            const grade = localStorage.getItem('grade');
+            const preparednessLevel = localStorage.getItem('preparednessLevel');
+
+            // Display the results
+            document.getElementById('timeSpent').textContent = 'Time Spent: ' + timeSpent;
+            document.getElementById('grade').textContent = 'Grade: ' + grade + '%';
+            document.getElementById('preparednessLevel').textContent = 'Level of Preparedness: ' + preparednessLevel;
+        });
+
+        function returnToHome() {
+            window.location.href = 'index.html'; // Change this to the actual home page URL
+        }
+    </script>
+</body>
+</html>
